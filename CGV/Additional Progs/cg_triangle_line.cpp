@@ -16,6 +16,9 @@ void disp(){
     glBegin(GL_LINES);
         glVertex2f(250,0);
         glVertex2f(0,0);
+        glVertex2f(0,0);
+        glVertex2f(0,250);
+        glVertex2f(250,0);
         glVertex2f(0,250);
     glEnd();
     glFlush();
