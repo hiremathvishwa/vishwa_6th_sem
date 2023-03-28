@@ -12,16 +12,21 @@ void myinit(){
     gluOrtho2D(0,100,0,100);
     glMatrixMode(GL_MODELVIEW);
 }
-
+float getRand(){
+    float t;
+    while(true){
+        t = rand()%20;
+        if(t>10){
+            return t;
+        }
+        else{continue;}
+    }
+}
 void disp(){
     glClearColor(1,1,1,1);
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(1,0,0);
-    float p[2] = {0,0};
-    while((p[0]>10 || p[0]<20) && (p[1] > 10 || p[1] < 20)){
-        p[0] = rand()%20;
-        p[1] = rand()%20;
-    }
+    float p[2] = {getRand(),getRand()};
     float v[3][2] = {{10,10},{15,20},{20,10}};
     int x;
     for(int i=0;i<10000;i++){
@@ -40,7 +45,7 @@ int main(int argc,char ** argv){
     glutInit(&argc,argv);
     srand(time(0));
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize(0,100,0,100);
+    glutInitWindowSize(50,50);
     glutCreateWindow("Sicripinski Gasket");
     myinit();
     glutDisplayFunc(disp);
