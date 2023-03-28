@@ -27,7 +27,7 @@ void disp(){
     glBegin(GL_POLYGON);
         glVertex2f(0.25,0);
         glVertex2f(0.25,0.5);
-        glVertex2f(-0.25,0.5)
+        glVertex2f(-0.25,0.5);
         glVertex2f(-0.25,0);
     glEnd();
     // body 

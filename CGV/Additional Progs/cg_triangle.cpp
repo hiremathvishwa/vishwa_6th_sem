@@ -28,7 +28,7 @@ int main(int argc,char **argv){
     glutInitWindowSize(500,500);
     glutCreateWindow("triangle with polygon primitive");
     myinit();
-    glDisplayFunc(disp);
-    glMainLoop();
+    glutDisplayFunc(disp);
+    glutMainLoop();
     return 0;
 }
