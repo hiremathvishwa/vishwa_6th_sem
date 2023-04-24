@@ -12,9 +12,15 @@ void myinit() {
     glMatrixMode(GL_MODELVIEW);
 }
 void plot(float x, float y) {
-    glColor3f(1, 0, 0);
-    glBegin(GL_POINTS);
+    glBegin(GL_LINES);
     glVertex2f(x, y);
+    glVertex2f(x, -y);
+    glVertex2f(-x, y);
+    glVertex2f(-x, -y);
+    glVertex2f(y, x);
+    glVertex2f(y, -x);
+    glVertex2f(-y, x);
+    glVertex2f(-y, -x);
     glEnd();
 }
 
@@ -22,10 +28,8 @@ void circle_1(float r) {
     float x = r, y;
 
     while (x >= 0) {
+        glColor3f(0, 0, 1);
         plot(x, y);
-        plot(x, -y);
-        plot(-x, y);
-        plot(-x, -y);
         x -= 0.01;
         y = sqrt((r * r) - (x * x));
     }
@@ -34,12 +38,15 @@ void circle_1(float r) {
 void circle_2(float r) {
     float o = 0;
     float x = 0, y = 0;
+    glColor3f(1, 0, 0);
+    glBegin(GL_POINTS);
     while (o < 360) {
         x = r * cosf(o);
         y = r * sinf(o);
         o += 1.0;
-        plot(x + 3, y + 2);
+        glVertex2f(x + 3, y + 2);
     }
+    glEnd();
 }
 void display() {
     glClearColor(1, 1, 1, 1);
